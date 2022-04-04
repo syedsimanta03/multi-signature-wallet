@@ -24,7 +24,6 @@ const getWallet = async web3 => {
     Wallet.abi,
     deployedNetwork && deployedNetwork.address,
   );
-  console.log(data);
   return data
 }
 
