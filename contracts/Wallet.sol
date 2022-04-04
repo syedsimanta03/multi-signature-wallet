@@ -16,7 +16,8 @@ contract Wallet {
   }
   
   Transfer[] public transfers;
-  mapping(address => mapping(uint => bool)) public approvals;
+  mapping(address => mapping(uint => bool)) public approvals; //false
+  //approvals[msg.sender][id] == false, 'cannot approve transfer twice')
 
   constructor(address[] memory _approvers, uint _quorum)  {
     approvers = _approvers;
