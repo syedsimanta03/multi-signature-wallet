@@ -18,12 +18,14 @@ const getWeb3 = () =>
   });
 
 const getWallet = async web3 => {
-  const networkId = await web3.eth.net.getId();
-  const deployedNetwork = Wallet.networks[networkId];
-  return new web3.eth.Contract(
+  const networkId = await web3.eth.net.getId()
+  const deployedNetwork = await Wallet.networks[networkId];
+  const data = new web3.eth.Contract(
     Wallet.abi,
     deployedNetwork && deployedNetwork.address,
   );
+  console.log(data);
+  return data
 }
 
 export { getWeb3, getWallet }; 
